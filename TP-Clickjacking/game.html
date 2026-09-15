@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Catch Me!</title>
+<style>
+#catchButton {
+position: absolute;
+top: 205px;
+left: 440px;
+}
+</style>
+</head>
+<body>
+<h1>Catch Me!</h1>
+<p>Score: <span id="score">0</span></p>
+<iframe src="portal.html" width="800" style="opacity: 1;"></iframe>
+
+<button id="catchButton" onclick="CatchMe()">Catch Me</button>
+<script>
+    let score=0;
+    function CatchMe() {
+
+        let Element=document.querySelector("iframe");
+        let scoreDisplay= document.getElementById("score");
+        let button= document.getElementById("catchButton");
+        let x;
+        let y;
+        
+        score++;
+        scoreDisplay.textContent=score ;
+        if (score==4) {
+            Element.style.zIndex=2;
+            button.style.left="220px" ;
+            button.style.top="440px";
+            
+            
+        }else{
+            x=Math.random()*500 ;
+            y=Math.random()*500 ;
+
+            button.style.left=x +"px" ;
+            button.style.top=y +"px" ;
+            
+        }
+        
+        
+       
+    }
+</script>
+</body>
+</html>
