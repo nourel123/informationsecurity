@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wander — travel stories</title>
+</head>
+<body>
+  <h1>Wander — travel stories</h1>
+  <h2>{{ page }}</h2>
+
+  <nav>
+    <a href="/">Home</a> |
+    <a href="/article/kyoto">Kyoto in autumn</a> |
+    <a href="/article/patagonia">Hiking Patagonia</a>
+  </nav>
+
+  <p>Travel article content for {{ page }}.</p>
+
+  <!-- same third-party tracker as publisher-one -->
+  <iframe src="http://tracker-one.test:9000/track?publisher=publisher-two&page={{ page }}"
+          width="320" height="40" style="border:1px solid #999"></iframe>
+
+
+<script src="http://analytics.test:9100/static/analytics.js"></script>
+        </body>
+</html>

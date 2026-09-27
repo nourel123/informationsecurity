@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tech Daily</title>
+</head>
+<body>
+  <h1>Tech Daily — technology news</h1>
+  <h2>{{ page }}</h2>
+
+  <nav>
+    <a href="/">Home</a> |
+    <a href="/article/ai-chips">AI chips</a> |
+    <a href="/article/quantum">Quantum computing</a>
+  </nav>
+
+  <p>Article content for {{ page }}.</p>
+
+  <!-- third-party content -->
+  <iframe src="http://tracker-one.test:9000/track?publisher=publisher-one&page={{ page }}"
+          width="320" height="40" style="border:1px solid #999"></iframe>
+
+<script src="http://analytics.test:9100/static/analytics.js"></script>
+        </body>
+</html>ı
