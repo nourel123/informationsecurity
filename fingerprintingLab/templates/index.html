@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fingerprinting Lab</title>
+  <style>
+    body { font-family: -apple-system, system-ui, sans-serif; margin: 2rem; max-width: 900px; }
+    h1 { margin-bottom: .2rem; }
+    .sub { color: #666; margin-top: 0; }
+    table { border-collapse: collapse; width: 100%; margin-top: 1rem; }
+    th, td { border: 1px solid #ddd; padding: .5rem .7rem; text-align: left;
+             font-size: .9rem; vertical-align: top; }
+    th { background: #f4f4f4; width: 230px; }
+    td { font-family: ui-monospace, Menlo, monospace; word-break: break-all; }
+    .missing { color: #b00; font-style: italic; font-family: inherit; }
+  </style>
+</head>
+<body>
+  <h1>Part 1 — Passive Fingerprinting</h1>
+  
+
+  <table>
+    <tr><th>Feature</th><th>Value sent by your browser</th></tr>
+    {% for name, value in passive.items() %}
+    <tr>
+      <th>{{ name }}</th>
+      <td {% if value == "— not sent —" %}class="missing"{% endif %}>{{ value }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <h1>Part 2 — Active Feature Collection</h1>
+  
+
+  <table>
+    <tr><th>Feature</th><th>Value read by JavaScript</th></tr>
+    <tbody id="feature-output">
+      <tr><td colspan="2">Waiting for JavaScript...</td></tr>
+    </tbody>
+  </table>
+
+  <script src="{{ url_for('static', filename='fingerprint.js') }}"></script>
+
+    <h1>Part 3 — The Typing Imposter</h1>
+
+  <p><b>rewrite this : </b></p>
+  <p id="target-sentence" class="target">cookies are not the only way to recognize a browser.</p>
+
+  <input id="typing-input" type="text" size="70" autocomplete="off"
+         spellcheck="false" placeholder="Start typing here...">
+  <button id="restart-button">Restart</button>
+
+  <table>
+    <tr><th>Measurement</th><th>Value</th></tr>
+    <tr><th>Total typing time</th><td id="result-time"></td></tr>
+    <tr><th>Typing speed</th><td id="result-speed"></td></tr>
+    <tr><th>Corrections (Backspace)</th><td id="result-corrections"></td></tr>
+  </table>
+
+  <script src="{{ url_for('static', filename='fingerprint.js') }}"></script>
+  <script src="{{ url_for('static', filename='fingerprint2.js') }}"></script>
+</body>
+</html>
